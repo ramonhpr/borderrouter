@@ -32,7 +32,6 @@
 /// @cond
 
 #define WITH_POSIX 1
-#include "coap_config.h"
 #include <coap/coap.h>
 
 #define MAX_COAP_PACKET 1280

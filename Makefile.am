@@ -34,9 +34,7 @@ SUBDIRS                                   = \
     third_party                             \
     include                                 \
     src                                     \
-    tests                                   \
     doc                                     \
-    tools                                   \
     $(NULL)
 
 EXTRA_DIST                                = \

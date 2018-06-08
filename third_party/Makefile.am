@@ -31,11 +31,6 @@ include $(abs_top_nlbuild_autotools_dir)/automake/pre.am
 SUBDIRS                 = \
     mbedtls               \
     wpantund              \
-    libcoap               \
-    Simple-web-server     \
-    mdl                   \
-    angular               \
-    angular-material      \
     $(NULL)
 
 include $(abs_top_nlbuild_autotools_dir)/automake/post.am

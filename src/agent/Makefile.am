@@ -62,7 +62,7 @@ libotbr_agent_la_SOURCES                                      = \
     $(NULL)
 
 libotbr_agent_la_LIBADD                                       = \
-    $(top_builddir)/third_party/libcoap/repo/libcoap-1.la       \
+    @LIBCOAP_LIBS@                                              \
     $(top_builddir)/third_party/mbedtls/libmbedtls.la           \
     $(top_builddir)/third_party/wpantund/libwpanctl.la          \
     $(top_builddir)/src/common/libotbr-logging.la               \
@@ -81,11 +81,8 @@ libotbr_agent_la_CPPFLAGS                                                  = \
     -DMBEDTLS_CONFIG_FILE='<config-thread.h>'                                \
     -I$(top_srcdir)/third_party/mbedtls/repo/configs                         \
     -I$(top_srcdir)/third_party/mbedtls/repo/include                         \
-    -I$(top_builddir)/third_party/libcoap/repo                               \
+    @LIBCOAP_CPPFLAGS@							     \
     -I$(top_srcdir)/src                                                      \
-    -I$(top_srcdir)/third_party/libcoap/repo                                 \
-    -I$(top_srcdir)/third_party/libcoap/repo/include                         \
-    -I$(top_srcdir)/third_party/wpantund/repo/src                            \
     -I$(top_srcdir)/third_party/wpantund/repo/src                            \
     -I$(top_srcdir)/third_party/wpantund/repo/src/ipc-dbus                   \
     -I$(top_srcdir)/third_party/wpantund/repo/src/wpanctl                    \

@@ -394,6 +394,20 @@ if test "${ac_no_link}" != "yes"; then
     AC_CHECK_FUNCS([memcpy])
 fi
 
+# Check for modules
+PKG_CHECK_MODULES(LIBCOAP, libcoap-1,
+  [AC_DEFINE([HAVE_LIBCOAP],[1],[Use LIBCOAP])],
+  [AC_MSG_ERROR("libcoap missing")])
+AC_SUBST(LIBCOAP_CPPFLAGS)
+AC_SUBST(LIBCOAP_LIBS)
+
+#PKG_CHECK_MODULES(WPANTUND, wpantund,
+#  [AC_DEFINE([HAVE_WPANTUND],[1],[Use WPANTUND])],
+#  [AC_MSG_ERROR("wpantund missing")])
+#AC_SUBST(WPANTUND_CPPFLAGS)
+#AC_SUBST(WPANTUND_LIBS)
+
+
 # Add any code coverage CPPFLAGS and LDFLAGS
 
 CPPFLAGS="${CPPFLAGS} ${NL_COVERAGE_CPPFLAGS}"
@@ -411,13 +425,8 @@ NL_RESTORE_WERROR
 AC_CONFIG_FILES([
 Makefile
 third_party/Makefile
-third_party/Simple-web-server/Makefile
-third_party/libcoap/Makefile
 third_party/mbedtls/Makefile
 third_party/wpantund/Makefile
-third_party/mdl/Makefile
-third_party/angular/Makefile
-third_party/angular-material/Makefile
 include/Makefile
 src/Makefile
 src/agent/Makefile
@@ -426,7 +435,6 @@ src/common/Makefile
 src/utils/Makefile
 tests/Makefile
 tests/mdns/Makefile
-tests/meshcop/Makefile
 tests/unit/Makefile
 tools/Makefile
 doc/Makefile
